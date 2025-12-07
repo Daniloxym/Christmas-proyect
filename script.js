@@ -48,3 +48,66 @@ function updateCountdown() {
   minutes.innerHTML = m < 10 ? '0' + m : m;
   seconds.innerHTML = s < 10 ? '0' + s : s;
 }
+
+// Joke button functionality
+const jokeBtn = document.querySelector('.joke-btn');
+const jokeQuestion = document.querySelector('.joke-question');
+const jokeAnswer = document.querySelector('.joke-answer');
+const JOKES_API = 'https://christmascountdown.live/api/joke';
+const anotherJokeBtn = document.getElementById('another-joke');
+
+let question, answer;
+
+window.addEventListener('load', async () => {
+  try {
+    const response = await fetch(JOKES_API);
+
+    if (response.status === 429) {
+      alert('Too many requests. Please wait a moment and try again.');
+      return;
+    }
+
+    if (!response.ok) {
+      alert(`Failed to fetch a joke. Error: ${response.status} - ${response.statusText}`);
+      return;
+    }
+
+    const data = await response.json();
+    question = data.question;
+    answer = data.answer;
+    jokeQuestion.textContent = question;
+  } catch (error) {
+    console.error('Error fetching joke:', error);
+    alert('Network error. Please check your connection and try again.');
+  }
+});
+
+jokeBtn.addEventListener('click', async () => {
+  jokeAnswer.textContent = answer;
+  jokeAnswer.style.display = 'block';
+});
+
+anotherJokeBtn.addEventListener('click', async () => {
+  try {
+    const response = await fetch(JOKES_API);
+
+    if (response.status === 429) {
+      alert('Too many requests. Please wait a moment before requesting another joke.');
+      return;
+    }
+
+    if (!response.ok) {
+      alert(`Failed to fetch a joke. Error: ${response.status} - ${response.statusText}`);
+      return;
+    }
+
+    const data = await response.json();
+    question = data.question;
+    answer = data.answer;
+    jokeQuestion.textContent = question;
+    jokeAnswer.style.display = 'none';
+  } catch (error) {
+    console.error('Error fetching joke:', error);
+    alert('Network error. Please check your connection and try again.');
+  }
+});
