@@ -73,6 +73,17 @@ body {
   font-family: 'Berkshire Swash', serif;
 }
 
+/* Performance optimizations */
+* {
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+.countdown__timer div:nth-child(1) { --delay: 0; }
+.countdown__timer div:nth-child(2) { --delay: 1; }
+.countdown__timer div:nth-child(3) { --delay: 2; }
+.countdown__timer div:nth-child(4) { --delay: 3; }
+
 .max-width {
   max-width: 1600px;
   margin-inline: auto;
@@ -99,6 +110,7 @@ body {
 .header__title {
   color: rgb(255, 255, 255);
   font-family: 'Mountains of Christmas', cursive;
+  font-size: 40px;
 }
 .nav {
   display: flex;
@@ -114,7 +126,7 @@ body {
 .nav a {
   text-decoration: none;
   color: rgb(255, 255, 255);
-  padding:10px 15px;
+  padding: 10px 15px;
   font-weight: 200;
   font-size: 18px;
   border-radius: 50%;
@@ -134,12 +146,11 @@ body {
 }
 
 .logo svg {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
 }
 
 /* HERO SECTION */
-
 
 .hero {
   height: 100vh;
@@ -153,10 +164,12 @@ body {
   left: 30%;
   max-width: 850px;
   transform: translate(-50%, -50%);
+  opacity: 0;
   color: white;
   font-size: 7rem;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  animation: fadeIn 1000ms ease-in both;
 }
 .hero__subtitle {
   position: absolute;
@@ -167,6 +180,7 @@ body {
   font-size: 2.5rem;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  animation: fadeIn 800ms 700ms ease-in both;
 }
 .hero img {
   width: 100%;
@@ -229,6 +243,12 @@ body {
 .countdown__title {
   font-size: 3.5rem;
   color: #fff;
+  will-change: transform, opacity;
+  animation-name: fadeUp;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-timeline: view();
+  animation-range: entry 15% cover 30%;
 }
 
 .countdown__timer {
@@ -243,6 +263,13 @@ body {
   background-color: var(--harlequin-400);
   padding: 10px 20px;
   border-radius: 10px;
+  will-change: transform, opacity;
+  animation-name: fadeUp;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-timeline: view();
+  animation-range: entry 20% cover 35%;
+  animation-delay: calc(var(--delay, 0) * 100ms);
 }
 
 .christmas {
@@ -281,7 +308,8 @@ body {
   padding: 50px 20px;
   text-align: center;
   font-family: 'Mountains of Christmas', cursive;
-  background-image: linear-gradient(to bottom,#7d00009a, #7d000078), url('./img/optimizada/arbol.webp');
+  background-image: linear-gradient(to bottom, #7d00009a, #7d000078),
+    url('./img/optimizada/arbol.webp');
   color: white;
   display: flex;
   justify-content: center;
@@ -290,6 +318,12 @@ body {
 .description__title {
   font-size: 3rem;
   margin-bottom: 20px;
+  will-change: transform, opacity;
+  animation-name: fadeUp;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-timeline: view();
+  animation-range: entry 20% cover 40%;
 }
 .description p {
   font-size: 1.3rem;
@@ -299,12 +333,24 @@ body {
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   text-align: left;
   margin-bottom: 1lh;
+  will-change: transform, opacity;
+  animation-name: fadeUp;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-timeline: view();
+  animation-range: entry 25% cover 45%;
 }
 
 .description img {
   max-width: 310px;
   border-radius: 15px;
   margin-bottom: 20px;
+  will-change: transform, opacity;
+  animation-name: fadeUp;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-timeline: view();
+  animation-range: entry 10% cover 50%;
 }
 
 /* TEAM FRONTEND */
@@ -312,7 +358,8 @@ body {
 .team {
   padding: 50px 20px;
   text-align: center;
-  background-image: linear-gradient(to bottom,#7d00009a, #7d000078), url('./img/optimizada/arbol.webp');
+  background-image: linear-gradient(to bottom, #7d00009a, #7d000078),
+    url('./img/optimizada/arbol.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -380,12 +427,13 @@ body {
   padding: 50px 20px;
   text-align: center;
   /* background-color: var(--red-orange-800); */
-  background-image: linear-gradient(to bottom,#137c0da2, #24ec1a2d), url('./img/nighthawstudio-6w2ZbBgKK7Q-unsplash.jpg');
+  background-image: linear-gradient(to bottom, #137c0da2, #24ec1a2d),
+    url('./img/nighthawstudio-6w2ZbBgKK7Q-unsplash.jpg');
   color: white;
 }
 .santa__title {
   font-size: 4rem;
-  text-shadow:  0 2px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   margin-bottom: 35px;
 }
 
@@ -401,7 +449,7 @@ body {
   overflow: hidden;
   margin-inline: auto;
   border-radius: 20px;
-  background-color: #0a4a11d7
+  background-color: #0a4a11d7;
 }
 
 /* Left column - Santa */
@@ -444,7 +492,8 @@ body {
   border-radius: 999px;
   font-weight: 600;
   font-size: 20px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* Form */
@@ -495,7 +544,7 @@ textarea {
 }
 
 #country {
-  background-color:var(--harlequin-700);
+  background-color: var(--harlequin-700);
 }
 .controls {
   display: flex;
@@ -536,4 +585,28 @@ textarea {
   background-color: var(--red-orange-800);
   color: white;
   font-size: 20px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -250px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 80px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
