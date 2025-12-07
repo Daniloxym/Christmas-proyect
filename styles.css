@@ -79,10 +79,18 @@ body {
   perspective: 1000;
 }
 
-.countdown__timer div:nth-child(1) { --delay: 0; }
-.countdown__timer div:nth-child(2) { --delay: 1; }
-.countdown__timer div:nth-child(3) { --delay: 2; }
-.countdown__timer div:nth-child(4) { --delay: 3; }
+.countdown__timer div:nth-child(1) {
+  --delay: 0;
+}
+.countdown__timer div:nth-child(2) {
+  --delay: 1;
+}
+.countdown__timer div:nth-child(3) {
+  --delay: 2;
+}
+.countdown__timer div:nth-child(4) {
+  --delay: 3;
+}
 
 .max-width {
   max-width: 1600px;
@@ -243,12 +251,6 @@ body {
 .countdown__title {
   font-size: 3.5rem;
   color: #fff;
-  will-change: transform, opacity;
-  animation-name: fadeUp;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  animation-timeline: view();
-  animation-range: entry 15% cover 30%;
 }
 
 .countdown__timer {
@@ -263,13 +265,6 @@ body {
   background-color: var(--harlequin-400);
   padding: 10px 20px;
   border-radius: 10px;
-  will-change: transform, opacity;
-  animation-name: fadeUp;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  animation-timeline: view();
-  animation-range: entry 20% cover 35%;
-  animation-delay: calc(var(--delay, 0) * 100ms);
 }
 
 .christmas {
@@ -318,12 +313,6 @@ body {
 .description__title {
   font-size: 3rem;
   margin-bottom: 20px;
-  will-change: transform, opacity;
-  animation-name: fadeUp;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  animation-timeline: view();
-  animation-range: entry 20% cover 40%;
 }
 .description p {
   font-size: 1.3rem;
@@ -333,24 +322,13 @@ body {
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   text-align: left;
   margin-bottom: 1lh;
-  will-change: transform, opacity;
-  animation-name: fadeUp;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  animation-timeline: view();
-  animation-range: entry 25% cover 45%;
 }
 
 .description img {
   max-width: 310px;
   border-radius: 15px;
   margin-bottom: 20px;
-  will-change: transform, opacity;
-  animation-name: fadeUp;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  animation-timeline: view();
-  animation-range: entry 10% cover 50%;
+ 
 }
 
 /* TEAM FRONTEND */
@@ -565,7 +543,7 @@ textarea {
   color: #fff;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.18);
+  font-size: 18px;
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 .btn:active {
