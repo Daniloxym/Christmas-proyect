@@ -1,0 +1,540 @@
+/* mountains-of-christmas-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Mountains of Christmas';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/mountains-of-christmas-v24-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* mountains-of-christmas-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Mountains of Christmas';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/mountains-of-christmas-v24-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* berkshire-swash-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Berkshire Swash';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/berkshire-swash-v22-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* Reset CSS */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables CSS */
+
+/* CSS Variables generated from Kigen.design */
+:root {
+  --red-orange-50: #ffecec;
+  --red-orange-100: #ffd5d5;
+  --red-orange-200: #ffafaf;
+  --red-orange-300: #ff8b8b;
+  --red-orange-400: #ff6262;
+  --red-orange-500: #ff2323;
+  --red-orange-600: #e10000;
+  --red-orange-700: #b10000;
+  --red-orange-800: #7d0000;
+  --red-orange-900: #480000;
+  --red-orange-950: #2d0000;
+  --harlequin-50: #c7ffc7;
+  --harlequin-100: #29fe1d;
+  --harlequin-200: #25ec1a;
+  --harlequin-300: #20d316;
+  --harlequin-400: #1bb712;
+  --harlequin-500: #159a0d;
+  --harlequin-600: #0e7c08;
+  --harlequin-700: #085e05;
+  --harlequin-800: #044002;
+  --harlequin-900: #012401;
+  --harlequin-950: #011500;
+  --bg: #0b1221;
+  --card: #0f1724;
+  --accent: #e11d48;
+  --shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Berkshire Swash', serif;
+}
+
+.max-width {
+  max-width: 1300px;
+  margin-inline: auto;
+}
+
+/* HEADERS CSS */
+
+.header {
+  padding: 15px 0;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 200ms ease-in-out;
+}
+
+.header--down {
+  background-color: var(--red-orange-500);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.491);
+}
+
+.header__title {
+  color: rgb(255, 255, 255);
+  font-family: 'Mountains of Christmas', cursive;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding: 5px 10px;
+  font-weight: 200;
+  font-size: 18px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.nav__links a:hover {
+  color: var(--red-orange-500);
+  background-color: rgb(255, 255, 255);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo svg {
+  width: 50px;
+  height: 50px;
+}
+
+/* HERO SECTION */
+
+.lol {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+}
+.hero {
+  height: 100vh;
+  position: relative;
+  z-index: -1;
+}
+
+.hero__title {
+  position: absolute;
+  top: 45%;
+  left: 30%;
+  max-width: 800px;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 4rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.hero__subtitle {
+  position: absolute;
+  top: 65%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.snow-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 20vw 10vh white, 40vw 20vh white, 60vw 5vh white, 80vw 15vh white, 90vw 25vh white,
+    10vw 30vh white, 30vw 0vh white, 50vw 35vh white, 70vw -5vh white;
+  animation: fall 12s linear infinite;
+}
+
+.layer2 {
+  width: 3px;
+  height: 3px;
+  box-shadow: 15vw 5vh white, 35vw 15vh white, 55vw -10vh white, 75vw 20vh white, 85vw 30vh white,
+    5vw 25vh white;
+  animation-duration: 9s;
+  opacity: 0.7;
+}
+
+.layer3 {
+  width: 4px;
+  height: 4px;
+  box-shadow: 25vw -5vh white, 45vw 10vh white, 65vw 0vh white, 85vw 15vh white, 95vw 5vh white;
+  animation-duration: 6s;
+  opacity: 0.5;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh);
+  }
+  100% {
+    transform: translateY(110vh);
+  }
+}
+
+/* COUNTDOWN*/
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding-block: 30px;
+  background-image: linear-gradient(#085e058a, #24ec1a2d), url('./img/optimizada/arbol.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.countdown__title {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.countdown__timer {
+  display: flex;
+  gap: 20px;
+  color: #fff;
+}
+.countdown__timer div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--harlequin-400);
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+
+.christmas {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+  animation: blink 1.8s infinite;
+  padding: 5px 15px;
+  border-radius: 10px;
+  color: #fff;
+  display: none;
+}
+
+:is(#days, #hours, #minutes, #seconds) {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0% {
+    background-color: var(--harlequin-400);
+    transform: scacle(1);
+  }
+  50% {
+    background-color: var(--harlequin-300);
+    transform: scale(1.15);
+  }
+  100% {
+    background-color: var(--harlequin-400);
+    transform: scale(1);
+  }
+}
+
+/* DESCRIPTION SECTION */
+
+.description {
+  padding: 50px 20px;
+  text-align: center;
+  font-family: 'Mountains of Christmas', cursive;
+  background-image: linear-gradient(to bottom,#7d00009a, #7d000078), url('./img/optimizada/arbol.webp');
+  color: white;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.description__title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.description p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-align: left;
+  margin-bottom: 1lh;
+}
+
+.description img {
+  width: 300px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+/* TEAM FRONTEND */
+
+.team {
+  padding: 50px 20px;
+  text-align: center;
+  background-image: linear-gradient(to bottom,#7d00009a, #7d000078), url('./img/optimizada/arbol.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  color: white;
+}
+
+.team__title {
+  font-size: 3rem;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
+.profile-card {
+  width: calc((100% / 3) - 30px);
+  padding: 1.6rem 1rem;
+  background: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+  transition: transform 0.25s;
+  cursor: pointer;
+}
+
+.profile-card:hover {
+  transform: translateY(-8px);
+}
+
+.profile-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid transparent;
+  background: linear-gradient(135deg, var(--harlequin-400), var(--red-orange-700)) border-box;
+}
+
+.profile-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1f2937;
+}
+
+.profile-role {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-top: 0.3rem;
+}
+
+/* SANTA SECTION */
+
+.santa {
+  padding: 50px 20px;
+  text-align: center;
+  /* background-color: var(--red-orange-800); */
+  background-image: linear-gradient(#24ec1a52, #24ec1a2d), url('./img/nighthawstudio-6w2ZbBgKK7Q-unsplash.jpg');
+  color: white;
+}
+.santa__title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.card {
+  width: min(920px, 95%);
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 28px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  align-items: start;
+  overflow: hidden;
+  margin-inline: auto;
+  border-radius: 20px;
+  background-color: #0a4a11d7
+}
+
+/* Left column - Santa */
+.santa-panel {
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.santa-avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fff, #efffde);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+.santa-avatar img {
+  width: 160px;
+  height: 160px;
+}
+.santa-name {
+  font-weight: 700;
+  font-size: 20px;
+}
+.santa-desc {
+  color: var(--muted);
+  font-size: 13px;
+}
+.badge {
+  background: linear-gradient(90deg, #0f9b0f, #00b712);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Form */
+form {
+  padding: 6px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.row {
+  display: flex;
+  gap: 12px;
+}
+.col {
+  flex: 1;
+}
+label {
+  display: block;
+  font-size: 13px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+input[type='text'],
+input[type='email'],
+textarea,
+select,
+input[type='number'] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background: transparent;
+  font-size: 15px;
+  color: #fff;
+  outline: none;
+  backdrop-filter: blur(6px);
+}
+textarea::placeholder,
+input[type='text']::placeholder,
+input[type='email']::placeholder,
+select::placeholder,
+input[type='number']::placeholder {
+  color: #ddd;
+}
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+#country {
+  background-color:var(--harlequin-700);
+}
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn {
+  background: linear-gradient(90deg, #0f9b0f, #00b712);
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.18);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+.secondary {
+  background: transparent;
+  border: 1px solid var(--glass);
+  padding: 10px 14px;
+}
+
+/* Footer */
+.footer {
+  padding: 30px;
+  text-align: center;
+  background-color: var(--red-orange-800);
+  color: white;
+  font-size: 14px;
+}
