@@ -382,7 +382,10 @@ body {
   margin-bottom: 1rem;
   border: 4px solid transparent;
   background: linear-gradient(135deg, var(--harlequin-400), var(--red-orange-700)) border-box;
+  object-position: 0 35%;
 }
+
+
 
 .profile-name {
   font-size: 1.3rem;
